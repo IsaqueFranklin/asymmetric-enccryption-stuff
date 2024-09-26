@@ -22,7 +22,7 @@ func main() {
   }
 
   plaintext := []byte("Hello world!")
-  ciphertext, err := rsa.EncryptPKCS!v15(rand.Reader, publicKey.(*rsa.PublicKey), plaintext)
+  ciphertext, err := rsa.EncryptPKCS1v15(rand.Reader, publicKey.(*rsa.PublicKey), plaintext)
   if err != nil {
     panic(err)
   }

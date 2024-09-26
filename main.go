@@ -1,10 +1,10 @@
 package main
 
-immport (
+import (
   "crypto/rand"
   "crypto/rsa"
   "crypto/x509"
-  "enconding/pem"
+  "encoding/pem"
   "os"
 )
 
@@ -16,7 +16,7 @@ func main() {
 
   publicKey := &privateKey.PublicKey
 
-  prrivateKeyBytes := x509.MarshalPKCS1PrivateKey(prrivateKey)
+  privateKeyBytes := x509.MarshalPKCS1PrivateKey(privateKey)
   privateKeyPEM := pem.EncodeToMemory(&pem.Block{
     Type: "RSA PRIVATE KEY",
     Bytes: prrivateKeyBytes,
@@ -46,7 +46,7 @@ func main() {
 
     publicKeyPEM := pem.EncodeToMemory(&pem.Block{
       Type: "RSA PUBLIC KEY",
-      Bytes: publicKeyBytes
+      Bytes: publicKeyBytes,
     })
     err = os.WriteFile("public.pem", publicKeyPEM, 0644)
     if err != nil {
